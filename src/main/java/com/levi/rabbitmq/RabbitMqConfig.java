@@ -39,7 +39,8 @@ public class RabbitMqConfig {
         factory.setErrorHandler(t -> log.error("ErrorHandler = {}", t.getMessage()));
         factory.setDefaultRequeueRejected(false); //true일 경우 리스너에서 예외가 발생시 다시 큐에 메시지가 쌓이게 된다.(예외상황 해결안될 시 무한루프)
         factory.setMessageConverter(jacksonConverter());
-        //예외 발생시 recover할 수 있는 옵션
+        //예외 발생시 recover할 수 있는 옵션, 위 에러 핸들러와 잘 구분해서 사용해야할듯
+        //위 핸들러와 적용 순서등도 테스트가 필요(혹은 둘다 동시에 적용되나?)
 //        factory.setAdviceChain(
 //                RetryInterceptorBuilder
 //                .stateless()
