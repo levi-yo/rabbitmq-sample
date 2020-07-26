@@ -1,0 +1,12 @@
+rabbitmq:
+  test:
+    username: username
+    password: password
+    host: localhost
+    port: 5672
+    virtualHost: levi.vhost
+    routeKey: test.route
+    exchangeName: test.exchange
+    queueName: testQueue
+    deadLetterExchange: dead.letter.exchange
+    deadLetterRouteKey: dead.letter.route
